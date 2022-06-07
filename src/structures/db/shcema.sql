@@ -1,0 +1,10 @@
+CREATE TABLE Guilds(
+    GuildId VARCHAR(50) PRIMARY KEY,
+    Prefix VARCHAR(5) DEFAULT '-',
+    DJRole VARCHAR(100) DEFAULT 'DJ',
+    Announce VARCHAR(5) DEFAULT 'false',
+    Maxqeue SMALLINT DEFAULT 100,
+    TrackTime MEDIUMINT DEFAULT 3600000,
+    Excludes JSON NOT NULL DEFAULT (JSON_ARRAY()),
+);
+

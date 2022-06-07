@@ -1,0 +1,15 @@
+/node_modules
+/dist
+logs
+yarn.lock
+yarn-error.log
+.yarn
+.env
+.yarnrc
+.yarnrc.yml
+application.yml
+
+
+
+#will refactor these files
+/src/commands/owner

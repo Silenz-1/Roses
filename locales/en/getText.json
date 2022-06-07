@@ -1,0 +1,67 @@
+{
+  "errors": {
+      "player": {
+        "no_player": "There aren't any songs playing currently.",
+          "not_the_same_vc": "You are not in the same voice channel as me!",
+            "no_user_found": "You aren't in any available voice channels."
+      },
+
+      "track": {
+        "no_track": "I couldn't find any tracks for your search query try to be more specific.",
+          "unloadable_track": "Can't load this track/playlist.",
+            "timeMaxed": "I can't load this track, it's duration is longer than `{{Time}}`",
+              "queueMaxed": "You can't add more than `{{length}}` tracks to the queue."
+      },
+
+        "permissions": {
+          "missing_speak_perms": "I don't have permissions to `speak` in the voice channel you are in.",
+            "missing_connect_perms": "I don't have permissions to `connect` to the voice channel you are in."
+        },
+
+            "commands": {
+              "excludes": {
+                "excluded": "`{{cmd}}` is already in the exclude list.",
+                  "not_excluded":"`{{cmd}}` isn't in the exclude list."
+              }
+            }, 
+
+                "no_queue": "There aren't any tracks in the queue yet.",
+
+          "playlist": {
+            "queueMaxed":"I can't load this playlist because it has `{{playlistLength}}` tracks and max queue tracks is `{{length}}` tracks.",
+                  "filtering_Maxed_Queue": {
+                      "filter": "There are `{{offTracks_Length}}` tracks out of `{{tracksLength}}` that have time longer than `{{Time}}`, either react with ✅ to filter them or ❎ to skip this playlist.",
+                          "unfilterable": "`{{- playlistName}}` has `{{tracksLength}}` tracks, their duration is longer than `{{Time}}`"
+                  }
+            
+          }
+  },
+
+  "playlist": {
+    "queuing_playlist":"Importing playlist `{{- playlistName}}` with adding `{{playlistLength}}` tracks to the queue."
+  },
+
+  "exclude": {
+    "add_exclude":"Excluded `{{cmd}}`",
+      "remove_excluded":"Removed `{{cmd}}` from the exclu ding list.",
+
+        "list": {
+          "no_excluded_commands":"There aren't any excluded commands",
+            "display_list":"{{- guildName}}'s excluded commands:\n `{{excludedCommands}}`"
+        }
+  },
+
+  "settings": {
+    "djrole": {
+      "set_djrole": "Set the new DJRole to `{{- role}}` in this guild.",
+        "exists":"`{{role}}` is already the djrole in this guild."
+    },
+
+    "newPrefix": "Prefix set to `{{- new_prefix}}` in this guild.",
+    "trackTime":"Set the max tracktime to `{{Time}}`.",
+    "maxQueue": "Set the maxqueue to `{{num}}` tracks.",
+    "announce": "Announce has set to `{{value}}`"
+  },
+
+  "progressBar": "**Now playing {{- trackTitle}}\n**{{barTime}} {{barProgress}} {{trackDuration}}\n requested by {{- requester}}"
+}
