@@ -6,7 +6,7 @@ export function channelperms(message: Message): void | boolean {
     'EMBED_LINKS', 'SEND_MESSAGES'
   ]);
 
-  const ChannelPerms_ = (message.channel as TextChannel).permissionsFor('897317813851684875')?.has([
+  const ChannelPerms_ = (message.channel as TextChannel).permissionsFor(message.client.user?.id!)?.has([
     'EMBED_LINKS', 'SEND_MESSAGES'
   ]);
   
@@ -23,12 +23,12 @@ export function channelperms(message: Message): void | boolean {
 }
 
 export function voice_channelperms(message: Message): unknown {
-  if (!message.member?.voice.channel?.permissionsFor(`${message.client.user?.id}`)?.has('CONNECT')) {
+  if (!message.member?.voice.channel?.permissionsFor(message.client.user?.id!)?.has('CONNECT')) {
     return ctx({
       key: 'errors.permissions.missing_connect_perms'
     }, message)
   }
-  else if (!message.member?.voice.channel?.permissionsFor(`${message.client.user?.id}`)?.has('SPEAK')) {
+  else if (!message.member?.voice.channel?.permissionsFor(message.client.user?.id!)?.has('SPEAK')) {
     return ctx({
       key: 'errors.permissions.missing_speak_perms'
     }, message);
@@ -39,7 +39,7 @@ export function reactionperms(message: Message): void | boolean {
 
   const Guildperms_ =  message.guild?.me?.permissions.has(['ADD_REACTIONS']);
 
-  const ChannelPerms_ = (message.channel as TextChannel).permissionsFor('897317813851684875')?.has(['ADD_REACTIONS']);
+  const ChannelPerms_ = (message.channel as TextChannel).permissionsFor(message.client.user?.id!)?.has(['ADD_REACTIONS']);
   
   if (!Guildperms_) {
     if (!ChannelPerms_) {
