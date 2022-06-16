@@ -14,8 +14,7 @@ import Player_ from "../utils/extended/ExtendedPlayer.js";
 export default class implements Command {
   public name = "play";
   public alias = ["p"];
-  public description = `\`Usage:\` **-play [songname|songURL|playlist]** 
-\`aliases:\` **${this.alias}**\n\n To add a [song|playlist] to the queue.`;
+  public description = `To add a [song|playlist] to the queue.`;
   constructor() {}
 
   public async execute(
@@ -69,7 +68,7 @@ export default class implements Command {
                 const maxQueueNum_ = await GetMaxqueue(message.guildId);
                 const maxTrackTime_ = await GetTrackTime(message.guildId);
                 const Track_ = parsingTracks(searchquery.tracks[0], message.author.id);
-                
+                                
                           if (searchquery.loadType === "TRACK_LOADED") {
                             
                             if (Track_.duration! > maxTrackTime_) {
@@ -118,11 +117,11 @@ export default class implements Command {
                                     return player.maxPlaylist(searchquery, message, maxQueueNum_);
                                   }
 
-                                  if (off_time_tracks.length !== 0) {                                   
-                                    return await player.maxTimePlaylist(tracks_, searchquery, maxTrackTime_, message)
-                                  }
+                                    if (off_time_tracks.length !== 0) {                                   
+                                      return await player.maxTimePlaylist(tracks_, searchquery, maxTrackTime_, message)
+                                    }
 
-                                  if (player.state !== "CONNECTED") player.connect();
+                                      if (player.state !== "CONNECTED") player.connect();
                                     player.queue.add(searchquery.tracks);
 
                                     await ctx({
