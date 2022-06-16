@@ -9,7 +9,7 @@ import ctx from '../utils/util/ctx';
 export default class implements Command {
   public name = 'resume';
   public alias = ['r'];
-  public description = `To resume the player.\n\n\`aliases:\` **${this.alias}**`;
+  public description = `To resume the player.`;
   constructor() {}
   public async execute(
     message: Message,

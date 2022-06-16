@@ -10,7 +10,7 @@ import ctx from '../utils/util/ctx';
 export default class implements Command {
   public name = 'nowplaying';
   public alias = ['np'];
-  public description = `To check the current playing track.\n\n\`aliases:\` **${this.alias}**`;
+  public description = `To check the current playing track.`;
   constructor() {}
   public async execute(
     message: Message,

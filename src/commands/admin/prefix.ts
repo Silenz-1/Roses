@@ -1,9 +1,9 @@
 import type { Command } from "../../config/Commands";
 import type { Message } from "discord.js";
 import { injectable } from "tsyringe";
-import { UpdatePrefix } from "../../structures/db_managing/setting_prefix.js";
-import { checkuserperms } from "../../utils/functions/permissions/checkuserperms.js";
-import ctx from "../../utils/util/ctx.js";
+import { UpdatePrefix } from "../../structures/db_managing/setting_prefix";
+import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
+import ctx from "../../utils/util/ctx";
 @injectable()
 export default class implements Command {
   public name = "prefix";
@@ -11,12 +11,7 @@ export default class implements Command {
   public permissions = {
     userpermissions: `Administrator`
   }
-  public description = 
-  `
-    \`Usage:\` **-prefix [prefix]**\n\nTo setup a new prefix in this guild.\n
-    permissions: 
-    \`user:\` ${this.permissions.userpermissions}
-  `;
+  public description = `To setup a new prefix in this guild.`;
   constructor() {}
   public async execute(message: Message, args: [string]): Promise<unknown> {
     if (!checkuserperms(message, "ADMINISTRATOR")) return;

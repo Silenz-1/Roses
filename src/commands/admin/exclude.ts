@@ -1,10 +1,10 @@
 import type { Command } from "../../config/Commands";
 import type { Message } from "discord.js";
 import { injectable } from "tsyringe";
-import { checkuserperms } from "../../utils/functions/permissions/checkuserperms.js";
-import { PushingExcludes } from "../../structures/db_managing/setting_Excludes.js";
-import { GetExcludes } from "../../structures/db_managing/setting_Excludes.js";
-import { RemoveExcludes } from "../../structures/db_managing/setting_Excludes.js";
+import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
+import { PushingExcludes } from "../../structures/db_managing/setting_Excludes";
+import { GetExcludes } from "../../structures/db_managing/setting_Excludes";
+import { RemoveExcludes } from "../../structures/db_managing/setting_Excludes";
 import ctx from "../../utils/util/ctx.js";
 @injectable()
 export default class implements Command {
@@ -13,31 +13,7 @@ export default class implements Command {
   public permissions = {
     userpermissions: `Administrator`,
   };
-  public description = `
-    \`Usage:\` **-exclude [add|remove] <command>**
-    To exclude a command from being only executable for the memebers who have DJ role.
-    Examples:
-    \`-exclude add clear\`
-    To add a command to be excluded.
-    \`-exclude remove loop\`
-    To remove an excluded command
-    \`-exclude list\`
-    To display the excluded commands
-
-    Avaliable commands:
-    \`pause\`
-    \`resume\`
-    \`clear\`
-    \`disconnect\`
-    \`loop\`
-    \`skip\`
-    \`shuffle\`
-    \`queuerepeat\`
-    \`remove\`
-    \`replay\`
-    
-    permissions:\n \`user:\` ${this.permissions.userpermissions}
-  `;
+  public description = `To exclude a command from being only executable for the memebers who have DJ role.`;
   constructor() {}
   public async execute(
     message: Message,

@@ -9,7 +9,7 @@ import ctx from "../utils/util/ctx.js";
 export default class implements Command {
   public name = "queue_repeat";
   public alias = ['qr'];
-  public description = `To repeat the queue. \n\n\`aliases:\` **${this.alias}**`
+  public description = `To repeat the queue.`
   constructor() {}
   public async execute(
     message: Message,

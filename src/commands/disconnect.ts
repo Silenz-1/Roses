@@ -2,14 +2,14 @@ import type { Command } from "../config/Commands";
 import type { Message, Guild } from "discord.js";
 import { injectable } from "tsyringe";
 import type { Manager } from "erela.js";
-import { CheckDjrole } from "../structures/db_managing/setting_djrole.js";
-import { GetExcludes } from "../structures/db_managing/setting_Excludes.js";
+import { CheckDjrole } from "../structures/db_managing/setting_djrole";
+import { GetExcludes } from "../structures/db_managing/setting_Excludes";
 import ctx from "../utils/util/ctx.js";
 @injectable()
 export default class implements Command {
   public name = "disconnect";
   public alias = ["dc"];
-  public description = `To destroy the player.\n\n\`aliases:\` **${this.alias}**`
+  public description = `To destroy the player.`
   constructor() {}
   public async execute(
     message: Message,

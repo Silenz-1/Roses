@@ -1,11 +1,11 @@
 import type { Command } from "../../config/Commands";
 import type { Message } from "discord.js";
 import { injectable } from "tsyringe";
-import { GetPrefix } from "../../structures/db_managing/setting_prefix.js";
-import { GetMaxqueue } from "../../structures/db_managing/setting_maxqueue.js";
-import { GetDjrole } from "../../structures/db_managing/setting_djrole.js";
-import { GetAnnounce } from "../../structures/db_managing/setting_announce.js";
-import { GetTrackTime } from "../../structures/db_managing/setting_tracktime.js";
+import { GetPrefix } from "../../structures/db_managing/setting_prefix";
+import { GetMaxqueue } from "../../structures/db_managing/setting_maxqueue";
+import { GetDjrole } from "../../structures/db_managing/setting_djrole";
+import { GetAnnounce } from "../../structures/db_managing/setting_announce";
+import { GetTrackTime } from "../../structures/db_managing/setting_tracktime";
 import pm from 'pretty-ms'
 @injectable()
 export default class implements Command {

@@ -1,7 +1,7 @@
 import type { Command } from "../config/Commands";
 import type { Message } from "discord.js";
 import { injectable, inject } from "tsyringe";
-import { InjCommands } from "../symbols.js";
+import { InjCommands } from "../symbols";
 @injectable()
 export default class implements Command {
   public name = "help";

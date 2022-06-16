@@ -2,11 +2,11 @@ import type { Command } from "../config/Commands";
 import type { Message } from "discord.js";
 import type { Manager, Track, UnresolvedTrack } from "erela.js";
 import { injectable } from "tsyringe";
-import { voice_channelperms } from "../utils/functions/permissions/botperms.js";
-import { formates } from "../utils/functions/formates.js";
-import { GetMaxqueue } from "../structures/db_managing/setting_maxqueue.js";
-import { parsingTracks } from "../utils/util/parsingTracks.js";
-import { GetTrackTime } from "../structures/db_managing/setting_tracktime.js";
+import { voice_channelperms } from "../utils/functions/permissions/botperms";
+import { formates } from "../utils/functions/formates";
+import { GetMaxqueue } from "../structures/db_managing/setting_maxqueue";
+import { parsingTracks } from "../utils/util/parsingTracks";
+import { GetTrackTime } from "../structures/db_managing/setting_tracktime";
 import ctx  from "../utils/util/ctx.js";
 import Player_ from "../utils/extended/ExtendedPlayer.js";
 

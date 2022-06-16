@@ -1,8 +1,8 @@
 import type { Command } from "../../config/Commands";
 import type { Message, Snowflake } from "discord.js";
 import { injectable } from "tsyringe";
-import { checkuserperms } from "../../utils/functions/permissions/checkuserperms.js";
-import { GetDjrole, UpdateDjrole } from "../../structures/db_managing/setting_djrole.js";
+import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
+import { GetDjrole, UpdateDjrole } from "../../structures/db_managing/setting_djrole";
 import ctx from "../../utils/util/ctx.js";
 @injectable()
 export default class implements Command {
@@ -11,10 +11,7 @@ export default class implements Command {
   public permissions = {
     userpermissions: `Administrator`
   }
-  public description = 
-  `
-    \`Usage:\` **-djrole [role_ID]**\n\nTo set a new DJ role in the guild. Only accepts role ID.\n\npermissions:\n \`user:\` ${this.permissions.userpermissions}
-  `;
+  public description = `To set a new DJ role in the guild. Only accepts role ID.`;
   constructor() {}
   public async execute(message: Message, args: [Snowflake]): Promise<unknown> {
     if (!checkuserperms(message, ["ADMINISTRATOR"])) return;

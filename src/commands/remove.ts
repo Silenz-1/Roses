@@ -2,14 +2,14 @@ import type { Command } from "../config/Commands";
 import type { Message, Guild } from "discord.js";
 import { injectable } from "tsyringe";
 import type { Manager } from "erela.js";
-import { CheckDjrole } from "../structures/db_managing/setting_djrole.js";
-import { GetExcludes } from "../structures/db_managing/setting_Excludes.js";
+import { CheckDjrole } from "../structures/db_managing/setting_djrole";
+import { GetExcludes } from "../structures/db_managing/setting_Excludes";
 import ctx from "../utils/util/ctx.js";
 @injectable()
 export default class implements Command {
   public name = "remove";
   public alias = [];
-  public description = `To remove a specified track/tracks from the qeueu.\n\n Examples:\n \`-remove 1 4\`\n \`-remove 10\``
+  public description = `To remove a specified track/tracks from the qeueu.`
   constructor() {}
   public async execute(
     message: Message,

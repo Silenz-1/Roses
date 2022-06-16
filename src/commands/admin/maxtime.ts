@@ -1,8 +1,8 @@
 import type { Command } from "../../config/Commands";
 import type { Message } from "discord.js";
 import { injectable } from "tsyringe";
-import { checkuserperms } from "../../utils/functions/permissions/checkuserperms.js";
-import { UpdateTrackTime } from "../../structures/db_managing/setting_tracktime.js";
+import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
+import { UpdateTrackTime } from "../../structures/db_managing/setting_tracktime";
 import ms from "ms";
 import ctx from "../../utils/util/ctx.js";
 @injectable()
@@ -12,9 +12,7 @@ export default class implements Command {
   public permissions = {
     userpermissions: `Administrator`,
   };
-  public description = ` \`Usage:\` **-maxtime [duration]** \nTo set the max track duration otherwise won't be loaded to the queue.\n\`Default duration is 1h.\`\n\nExamples:\n\`-tracktime 30m\`\n\`-tracktime 2h\`\n\npermissions: 
-    \`user:\` ${this.permissions.userpermissions}
-  `;
+  public description = `To set the max track duration otherwise won't be loaded to the queue.\n\`Default duration is 1h.`;
   constructor() {}
   public async execute(message: Message, args: [number]): Promise<unknown> {
     if (!checkuserperms(message, "ADMINISTRATOR")) return;

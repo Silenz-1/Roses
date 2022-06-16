@@ -1,9 +1,9 @@
 import type { Command } from "../../config/Commands";
 import type { Message } from "discord.js";
 import { injectable } from "tsyringe";
-import { checkuserperms } from "../../utils/functions/permissions/checkuserperms.js";
-import { UpdateAnnounce } from "../../structures/db_managing/setting_announce.js";
-import ctx from "../../utils/util/ctx.js";
+import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
+import { UpdateAnnounce } from "../../structures/db_managing/setting_announce";
+import ctx from "../../utils/util/ctx";
 @injectable()
 export default class implements Command {
   public name = "announce";
@@ -11,9 +11,7 @@ export default class implements Command {
   public permissions = {
     userpermissions: `Administrator`,
   };
-  public description = `       
-        \`Usage:\` **-announce <true|false>**\n\nTo whether disable/enable announcing the start of a track in the guild.\n\npermissions:\n \`user:\` ${this.permissions.userpermissions}
-    `;
+  public description = `To whether disable/enable announcing the start of a track in the guild.`;
   constructor() {}
   public async execute(message: Message<boolean>, args: string[]): Promise<unknown> {
     if (!checkuserperms(message, ["ADMINISTRATOR"])) return;
