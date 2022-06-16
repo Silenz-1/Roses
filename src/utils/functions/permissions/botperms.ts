@@ -22,7 +22,7 @@ export function channelperms(message: Message): void | boolean {
   return true;
 }
 
-export async function voice_channelperms(message: Message): Promise<Message | void> {
+export async function voice_channelperms(message: Message): Promise<unknown | void> {
   if (!message.member?.voice.channel?.permissionsFor(message.client.user?.id!)?.has('CONNECT')) {
     return await ctx({
       key: 'errors.permissions.missing_connect_perms'
