@@ -1,16 +1,52 @@
-import type { MessageEmbed } from "discord.js";
-import type { Track, Queue, UnresolvedTrack } from "erela.js";
-import { formates } from "./formates.js";
+import type { Queue } from 'erela.js';
+import { APIEmbed } from 'discord-api-types/v10';
+import i18next from 'i18next';
+import _ from 'lodash';
+import Player_ from '../extended/ExtendedPlayer';
+export function Embed(embedOps: APIEmbed): APIEmbed {
+  return embedOps;
+}
 
-export function queueEmbed(queue: Queue, track: (Track | UnresolvedTrack)): MessageEmbed[] {
-  const { player: { queueEmbed_f3 } } = formates;
-  const embeds = [];
-  let k = 3;
+export function queueEmbed(queue: Queue, player: Player_): APIEmbed[] {
+  const currentTrack = player.queue.current!;
+  const splittedQueue = _.chunk(queue, 3);
 
-  for (let i = 0; i < queue.length; i += 3) {
-    const sliced = (queue.slice(i, k)) as (Track | UnresolvedTrack)[]
-    k += 3;
-    embeds.push(queueEmbed_f3(sliced, track, i));
+  const embeds = splittedQueue.map((queueTracks) => {
+    const strings_ = `__Rest of the queue**:**__\n${queueTracks
+      .map((track) => {
+        return `${queue.indexOf(track) + 1}- [${track.title}](${
+          track.uri
+        }) — requested by ${track.requester}`;
+      })
+      .join(`\n`)}`;
+
+    return Embed({
+      description: ` 
+              ${i18next.t('Embeds.queueEmbed', {
+                title: currentTrack.title,
+                URL: currentTrack.uri,
+                requester: currentTrack.requester,
+                rest: strings_,
+              })}
+              
+              `,
+      color: 1752220,
+      footer: {
+        text: '',
+      },
+    });
+  });
+
+  if (embeds.length > 1) {
+    embeds[0].footer!.text = `Page: 1 / ${embeds.length}`;
+    if (player.queueRepeat) {
+      embeds[0].footer!.text =
+        embeds[0].footer?.text + ' | queue is being lopped';
+    }
+  }
+
+  if (player.queueRepeat && embeds.length < 2) {
+    embeds[0].footer!.text = 'queue is being lopped';
   }
 
   return embeds;

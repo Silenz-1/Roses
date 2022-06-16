@@ -104,6 +104,9 @@ export default class Player_ extends Player {
 
 
   public progressBar(current: number, total: number, barSize: number, time: number) {
+    /* 
+      * Forked from 
+    */
     const progress = Math.round((barSize * current) / total)
       time = Math.round(time / 1000);
       const s = time % 60,

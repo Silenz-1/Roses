@@ -63,5 +63,8 @@
     "announce": "Announce has set to `{{value}}`"
   },
 
-  "progressBar": "**Now playing {{- trackTitle}}\n**{{barTime}} {{barProgress}} {{trackDuration}}\n requested by {{- requester}}"
+  "progressBar": "**Now playing {{- trackTitle}}\n**{{barTime}} {{barProgress}} {{trackDuration}}\n requested by {{- requester}}",
+  "Embeds": {
+    "queueEmbed":"__Currenlty playing\n__ __[{{- title }}]({{- URL }})__ requested by {{- requester }}\n {{- rest}}"
+  }
 }

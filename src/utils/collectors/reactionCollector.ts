@@ -1,24 +1,22 @@
 import type {
   Message,
-  MessageEmbed,
   MessageReaction,
   ReactionCollector,
   Snowflake,
   User,
 } from "discord.js";
-import { reactionperms } from "../functions/permissions/botperms.js";
-import type Player_ from "../extended/ExtendedPlayer.js";
+import { reactionperms } from "../functions/permissions/botperms";
+import type Player_ from "../extended/ExtendedPlayer";
+import ctx from "../util/ctx";
 
 export async function collector(
   message: Message,
   Emojis: string[],
   AuthId: Snowflake,
-  ops?: MessageEmbed[] | Player_
+  ops?: Player_
 ): Promise<void> {
-  let page = 0;
   const player = ops as Player_;
-  const embeds = ops as MessageEmbed[]
- 
+
   if (!reactionperms(message)) return;
 
   Emojis.forEach(async (emoji) => {
@@ -39,23 +37,7 @@ export async function collector(
       return await message.delete();
     }
 
-    if (reaction.emoji.name === "➡️") {
-      if (page < embeds.length - 1) {
-        page++;
-        return await message.edit({
-          embeds: [embeds[page]],
-        });
-      }
-    }
-
-    if (reaction.emoji.name === "⬅️") {
-      if (page !== 0) {
-        return await message.edit({
-          embeds: [embeds[page]],
-        });
-      }
-    }
-
+    
     if (reaction.emoji.name === "🔂") {
       if (!player.trackRepeat) {
         return player.setTrackRepeat(true);
@@ -81,14 +63,12 @@ export async function collector(
     if (reaction.emoji.name === "✅") {
       collector.stop();
       const tracks_ = player.filtredTracks;
-      message.channel.send({
-        embeds: [
-          { 
-            description: `Loading \`${ tracks_.length}\` tracks to the queue`, 
-            color: "YELLOW" 
-          }
-        ],
-      });
+
+      ctx({
+        key: `Loading \`${tracks_.length}\` tracks to the queue.`,
+        isEmbed: false
+      }, message)
+    
       if (player.state !== "CONNECTED") player.connect();
       player.queue.add(tracks_);
       if (
@@ -102,14 +82,17 @@ export async function collector(
 
     if (reaction.emoji.name === "❎") {
       collector.stop();
-      message.channel.send(`Skipped adding the playlist to the queue.`);
+      ctx({
+        key: 'Skipped Loading this playlist to the queue.',
+        isEmbed: false
+      }, message)
       return;
     }
   });
 
-  collector.on("end", async () => {
+  collector.once("end", async () => {
     try {
-    await message.reactions.removeAll();
+      await message.reactions.removeAll();
     } catch (e) {
       Emojis.forEach(async (emoji) => {
         const Emoji_ = message.reactions.cache.get(emoji);

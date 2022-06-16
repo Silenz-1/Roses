@@ -1,4 +1,5 @@
-import { Formatters, Message, MessageEmbed, TextChannel } from "discord.js";
+//import { APIEmbed } from "discord-api-types/v10";
+import { Formatters, Message, TextChannel } from "discord.js";
 import type { Player, Track, UnresolvedTrack } from "erela.js";
 import pm from "pretty-ms";
 export const formates = {
@@ -75,32 +76,5 @@ export const formates = {
         ],
       });
     },
-
-    displayingPagination: (no_ofEmbeds: number, page: number, Embeds: MessageEmbed[]) => {
-      let pages;
-      for (const Embed of Embeds) {
-       pages = Embed.setFooter({ text: `Page ${(page + 1)} of ${no_ofEmbeds}` })
-      }
-      return pages;
-    }, 
-
-    queueEmbed_f3: (queue: (Track | UnresolvedTrack)[], track: (Track | UnresolvedTrack), counter: number): MessageEmbed => {
-    
-
-      const strings_ = `__Rest of the queue**:**__\n${queue
-        .map((track) => {
-          return `${++counter} [${track.title}](${track.uri}) — requested by ${track.requester}`;
-        }).join(`\n`)}`;
-
-      const Embed = new MessageEmbed()
-        .setDescription(
-          `__Currently playing**:**__\n __[${track?.title}](${track?.uri})__ — requested by ${track?.requester}.\n\n${strings_}`
-        )
-        .setColor(`AQUA`)
-        //.setFooter({ text: `${player.queueRepeat === true ? `queue is being looped` : ``}` });
-
-        return Embed;
-    },
   },
-
 };
