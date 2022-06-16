@@ -31,7 +31,7 @@ export default class implements Command {
         }, message)
       }
 
-        if (voice_channelperms(message)) return;
+        if (await voice_channelperms(message)) return;
 
           if (
             message.guild!.me!.voice.channelId &&

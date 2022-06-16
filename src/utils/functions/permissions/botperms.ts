@@ -22,14 +22,14 @@ export function channelperms(message: Message): void | boolean {
   return true;
 }
 
-export function voice_channelperms(message: Message): unknown {
+export async function voice_channelperms(message: Message): Promise<Message | void> {
   if (!message.member?.voice.channel?.permissionsFor(message.client.user?.id!)?.has('CONNECT')) {
-    return ctx({
+    return await ctx({
       key: 'errors.permissions.missing_connect_perms'
     }, message)
   }
-  else if (!message.member?.voice.channel?.permissionsFor(message.client.user?.id!)?.has('SPEAK')) {
-    return ctx({
+  if (!message.member?.voice.channel?.permissionsFor(message.client.user?.id!)?.has('SPEAK')) {
+    return await ctx({
       key: 'errors.permissions.missing_speak_perms'
     }, message);
   }

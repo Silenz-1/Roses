@@ -1,7 +1,7 @@
 import { Client } from "discord.js";
 import { Manager, Player } from "erela.js";
 import { injectable } from "tsyringe";
-import type { Event } from "../../../config/Events.js";
+import type { Event } from "../../../config/Events";
 @injectable()
 export default class implements Event {
   public name = "PlayerMoved Event";
@@ -11,7 +11,6 @@ export default class implements Event {
   public async execute(): Promise<void> {
     const resolve = async (player: Player) => {
       const resolving = new Promise(res => setTimeout(res, 1000));
-      await resolving
        player.pause(true);
        await resolving;
       player.pause(false);

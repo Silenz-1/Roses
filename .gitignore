@@ -11,5 +11,5 @@ application.yml
 
 
 
-#will refactor these files
+#will refactor all owner files
 /src/commands/owner
