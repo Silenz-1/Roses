@@ -105,7 +105,7 @@ export default class Player_ extends Player {
 
   public progressBar(current: number, total: number, barSize: number, time: number) {
     /* 
-      * Forked from 
+      * Forked from https://github.com/5antos/JS-Randomness/blob/master/progressBar.js
     */
     const progress = Math.round((barSize * current) / total)
       time = Math.round(time / 1000);
