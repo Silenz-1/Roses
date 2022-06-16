@@ -5,7 +5,7 @@ import { checkuserperms } from "../../utils/functions/permissions/checkuserperms
 import { PushingExcludes } from "../../structures/db_managing/setting_Excludes";
 import { GetExcludes } from "../../structures/db_managing/setting_Excludes";
 import { RemoveExcludes } from "../../structures/db_managing/setting_Excludes";
-import ctx from "../../utils/util/ctx.js";
+import ctx from "../../utils/ctx.js";
 @injectable()
 export default class implements Command {
   public name = "exclude";

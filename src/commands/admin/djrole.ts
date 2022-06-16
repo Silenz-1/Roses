@@ -3,7 +3,7 @@ import type { Message, Snowflake } from "discord.js";
 import { injectable } from "tsyringe";
 import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
 import { GetDjrole, UpdateDjrole } from "../../structures/db_managing/setting_djrole";
-import ctx from "../../utils/util/ctx.js";
+import ctx from "../../utils/ctx.js";
 @injectable()
 export default class implements Command {
   public name = "DJRole";

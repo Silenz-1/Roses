@@ -3,7 +3,7 @@ import type { Message } from "discord.js";
 import { injectable } from "tsyringe";
 import { UpdatePrefix } from "../../structures/db_managing/setting_prefix";
 import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
-import ctx from "../../utils/util/ctx";
+import ctx from "../../utils/ctx";
 @injectable()
 export default class implements Command {
   public name = "prefix";

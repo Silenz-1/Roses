@@ -7,7 +7,7 @@ import type {
 } from "discord.js";
 import { reactionperms } from "../functions/permissions/botperms";
 import type Player_ from "../extended/ExtendedPlayer";
-import ctx from "../util/ctx";
+import ctx from "../ctx";
 
 export async function collector(
   message: Message,

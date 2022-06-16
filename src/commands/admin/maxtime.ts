@@ -4,7 +4,7 @@ import { injectable } from "tsyringe";
 import { checkuserperms } from "../../utils/functions/permissions/checkuserperms";
 import { UpdateTrackTime } from "../../structures/db_managing/setting_tracktime";
 import ms from "ms";
-import ctx from "../../utils/util/ctx.js";
+import ctx from "../../utils/ctx.js";
 @injectable()
 export default class implements Command {
   public name = "maxtime";

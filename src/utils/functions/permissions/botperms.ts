@@ -1,5 +1,5 @@
 import type { Message, TextChannel } from "discord.js";
-import ctx from "../../util/ctx";
+import ctx from "../../ctx";
 
 export function channelperms(message: Message): void | boolean {
   const Guildperms_ =  message.guild?.me?.permissions.has([

@@ -4,8 +4,8 @@ import type { Manager } from 'erela.js';
 import { injectable } from 'tsyringe';
 import { queueEmbed } from '../utils/functions/Embed';
 import { ButtonCollector } from '../utils/collectors/buttonsCollector';
-import { PushingButtons } from '../utils/util/components';
-import ctx from '../utils/util/ctx.js';
+import { PushingButtons } from '../utils/components';
+import ctx from '../utils/ctx.js';
 import Player_ from '../utils/extended/ExtendedPlayer';
 
 @injectable()

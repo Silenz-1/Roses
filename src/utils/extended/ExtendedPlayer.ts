@@ -8,7 +8,7 @@ import {
 import type { Message } from "discord.js";
 import pm from "pretty-ms";
 import { collector } from "../collectors/reactionCollector";
-import ctx from "../util/ctx";
+import ctx from "../ctx";
 
 export default class Player_ extends Player {
   public filtredTracks: (Track | UnresolvedTrack)[];

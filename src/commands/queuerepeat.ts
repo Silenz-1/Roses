@@ -4,7 +4,7 @@ import { injectable } from "tsyringe";
 import type { Manager } from "erela.js";
 import { CheckDjrole } from "../structures/db_managing/setting_djrole.js";
 import { GetExcludes } from "../structures/db_managing/setting_Excludes.js";
-import ctx from "../utils/util/ctx.js";
+import ctx from "../utils/ctx.js";
 @injectable()
 export default class implements Command {
   public name = "queue_repeat";

@@ -5,7 +5,7 @@ import type { Manager, Track } from 'erela.js';
 import { collector } from '../utils/collectors/reactionCollector';
 import pm from 'pretty-ms';
 import type Player_ from '../utils/extended/ExtendedPlayer';
-import ctx from '../utils/util/ctx';
+import ctx from '../utils/ctx';
 @injectable()
 export default class implements Command {
   public name = 'nowplaying';

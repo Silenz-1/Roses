@@ -5,9 +5,9 @@ import { injectable } from "tsyringe";
 import { voice_channelperms } from "../utils/functions/permissions/botperms";
 import { formates } from "../utils/functions/formates";
 import { GetMaxqueue } from "../structures/db_managing/setting_maxqueue";
-import { parsingTracks } from "../utils/util/parsingTracks";
+import { parsingTracks } from "../utils/parsingTracks";
 import { GetTrackTime } from "../structures/db_managing/setting_tracktime";
-import ctx  from "../utils/util/ctx.js";
+import ctx  from "../utils/ctx.js";
 import Player_ from "../utils/extended/ExtendedPlayer.js";
 
 @injectable()

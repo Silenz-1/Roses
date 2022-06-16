@@ -4,7 +4,7 @@ import {
   MessageEmbed,
   Snowflake,
 } from 'discord.js';
-import { disable } from '../util/components';
+import { disable } from '../components';
 import { APIEmbed } from 'discord-api-types/v10';
 import Player_ from '../extended/ExtendedPlayer';
 
