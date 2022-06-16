@@ -9,7 +9,7 @@ export function Embed(embedOps: APIEmbed): APIEmbed {
 
 export function queueEmbed(queue: Queue, player: Player_): APIEmbed[] {
   const currentTrack = player.queue.current!;
-  const splittedQueue = _.chunk(queue, 3);
+  const splittedQueue = _.chunk(queue, 10);
 
   const embeds = splittedQueue.map((queueTracks) => {
     const strings_ = `__Rest of the queue**:**__\n${queueTracks
