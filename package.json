@@ -1,7 +1,6 @@
 {
   "name": "roses",
   "version": "1.0.0",
-  "private": "true",
   "main": "index.js",
   "license": "MIT",
   "author": "Leon",
@@ -16,7 +15,7 @@
     "@discordjs/rest": "^0.4.1",
     "bluebird": "^3.7.2",
     "discord-api-types": "^0.32.0",
-    "discord.js": "^13.8.0",
+    "discord.js": "13.9.2",
     "dotenv": "^16.0.0",
     "erela.js": "^2.3.3",
     "erela.js-spotify": "^1.2.0",
